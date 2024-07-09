@@ -9,9 +9,9 @@ const getTodo = async (todoId: number) => { try{
     const number_user = todo.data.userId;
     const owner = await axios.get(`https://jsonplaceholder.typicode.com/users/${number_user}`)
     const return_result = {
-      "owner ":  `${owner.data.name}`,
-      "Title ":  `${todo.data.title}`,
-      "Complete ":  `${todo.data.completed}`
+      "owner ":  owner.data.name,
+      "Title ":  todo.data.title,
+      "Complete ":  todo.data.completed
     }; return return_result;
   }catch(err) {return "INVALID TODO ID"}
 }catch(err) {return "INVALID TODO ID"}
